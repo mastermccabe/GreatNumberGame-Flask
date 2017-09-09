@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js ">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js">
+  </script>
+  <link rel='stylesheet' type 'text/css' href="{{url_for('static',filename='css/styles.css')}}">
+  <script type='text/javascript' src="{{ url_for('static', filename = 'js/myscript.js')}}"></script>
+  <title>guess number</title>
+</head>
+<br><br><br><br>
+
+<body class='container text-center col-md-5 col-md-offset-4 align-middle'>
+  <h1>Welcome to the great number game</h1>
+  <p>Im thinking of a number between 1 and 100</p>
+  <p> Take a guess</p>
+  <form action='/num_guess' method='post'>
+    <input type='number' name='number' min="1" max="100"><br>
+    <input type='submit' class="btn btn-primary" value='guess'>
+  </form>
+  <!-- <p> key = {{guess}}<br> magic # is number {{someKey}} <br> win? {{win}} </p> -->
+  {% if win == True %}
+  <h1>winner</h1> {% else %}
+  <p>loser</p>
+  {% endif %}
+
+  <form action='/signout' method='post'>
+    <input type="submit" value="Reset" name="button" class="btn btn-primary"></button>
+  </form>
+</body>
+
+
+</html>
